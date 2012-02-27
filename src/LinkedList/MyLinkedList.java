@@ -1,3 +1,4 @@
+package LinkedList;
 
 /**
  * LinkedList class implements a doubly-linked list.
