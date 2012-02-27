@@ -1,6 +1,3 @@
-package proj1;
-import LinkedList.*;
-
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -27,50 +24,46 @@ public class Proj1 {
 		
 		
 		int blocks = 100;
-		int btyes = 1024;
+		int bytes = 1024;
+		String filename = "command.dat";
 		
-		getCommand("command.dat");
-		
-		Object storage = new Object();
-		
-		int storage.blocks = 100;
-		int storage bytes = 1024;
-		String storage.filename = "command.dat"
-				
-				
+		getCommand("command.dat");		
 
 	}
 	
-	static void getCommand(Object filename) throws IOException {
+	static void getCommand(String filename) throws IOException {
 		BufferedReader r = new BufferedReader(new FileReader(filename));
 		StringTokenizer stok = new StringTokenizer(r.readLine());
 		String Command = stok.nextToken();
-		Object storage = new Object();
-		MyLinkedList<Object> fileManager = new MyLinkedList(Object);
+		
+		MyLinkedList fileManager = new MyLinkedList();
+		
+		String storageName;
+		int bytes;
 		
 		if (Command.equals(create))
 		{
-			String storageName = stok.nextToken();
-			int blocks = Integer.parseInt(stok.nextToken());
+			storageName = stok.nextToken();
+			bytes = Integer.parseInt(stok.nextToken());
 			
 			
 			
 		}
 		else if (Command.equals(delete))
 		{
-			String storageName = stok.nextToken();
+			storageName = stok.nextToken();
 			
 		}
 		else if (Command.equals(extend))
 		{
-			String storageName = stok.nextToken();
-			int blocks = Integer.parseInt(stok.nextToken());
+			storageName = stok.nextToken();
+			bytes = Integer.parseInt(stok.nextToken());
 			
 		}
 		else if (Command.equals(truncate))
 		{
-			String storageName = stok.nextToken();
-			int blocks = Integer.parseInt(stok.nextToken());
+			storageName = stok.nextToken();
+			bytes = Integer.parseInt(stok.nextToken());
 			
 		}
 		else if (Command.equals(printList))

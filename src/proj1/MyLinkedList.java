@@ -1,5 +1,4 @@
-package LinkedList;
-
+package proj1;
 /**
  * LinkedList class implements a doubly-linked list.
  *
