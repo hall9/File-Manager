@@ -1,3 +1,5 @@
+package proj1;
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -10,33 +12,35 @@ public class Proj1 {
 	static String delete = "DELETE";
 	static String extend = "EXTEND";
 	static String truncate = "TRUNCATE";
-	static String printList = "PRINT";
+	static String printState = "PRINT";
 	
-	public static void main(String[] args) throws IOException {	
-		/*
+	public static void main(String[] args) throws IOException 
+	{	
+
 		int blocks = Integer.parseInt(args[0]);
-		int bytes = Integer.parseInt(args[1]);
+		int bytesPerBlock = Integer.parseInt(args[1]);
 		String filepath = args[2];
 		
-		getCommand(filepath);
-		
-		*/
-		
-		
+		/*
 		int blocks = 100;
 		int bytes = 1024;
-		String filename = "command.dat";
+		String filepath = "command.dat";
+		*/
 		
-		getCommand("command.dat");		
+		System.out.println("Blocks: " + blocks);
+		System.out.println("BytesPerBlock: " + bytesPerBlock);
+		System.out.println("Filepath: " + filepath);
+		
+		getCommand(blocks, bytesPerBlock, filepath);		
 
 	}
 	
-	static void getCommand(String filename) throws IOException {
+	static void getCommand(int blocks, int bytesPerBlock, String filename) throws IOException {
 		BufferedReader r = new BufferedReader(new FileReader(filename));
 		StringTokenizer stok = new StringTokenizer(r.readLine());
 		String Command = stok.nextToken();
 		
-		MyLinkedList fileManager = new MyLinkedList();
+		//MyLinkedList fileManager = new MyLinkedList<>();
 		
 		String storageName;
 		int bytes;
@@ -46,18 +50,22 @@ public class Proj1 {
 			storageName = stok.nextToken();
 			bytes = Integer.parseInt(stok.nextToken());
 			
-			
+			System.out.println(storageName);
+			System.out.println(bytes);
 			
 		}
 		else if (Command.equals(delete))
 		{
 			storageName = stok.nextToken();
+			System.out.println(storageName);
 			
 		}
 		else if (Command.equals(extend))
 		{
 			storageName = stok.nextToken();
 			bytes = Integer.parseInt(stok.nextToken());
+			System.out.println(storageName);
+			System.out.println(bytes);
 			
 		}
 		else if (Command.equals(truncate))
@@ -66,7 +74,7 @@ public class Proj1 {
 			bytes = Integer.parseInt(stok.nextToken());
 			
 		}
-		else if (Command.equals(printList))
+		else if (Command.equals(printState))
 		{
 			
 			

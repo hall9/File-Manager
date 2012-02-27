@@ -1,0 +1,3 @@
+CREATE alex.dat 350
+EXTEND alex.dat 100
+DELETE this.dat

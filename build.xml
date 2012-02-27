@@ -91,17 +91,17 @@
 
     Update: D. Frey, 1/9/12 add debug to javac command
 -->
-<project name="Sample Project" default="compile" basedir=".">
+<project name="File-Manager" default="compile" basedir=".">
 
   <description>
-    A sample build file for this project
+    This is the build file for the File-manager
   </description>
   
   <!-- global properties for this build file -->
   <property name="source.dir" location="src"/>
-  <property name="build.dir" location="bin"/>
+  <property name="build.dir" location="bin/Proj1"/>
   <property name="doc.dir" location="doc"/>
-  <property name="main.class" value="package.ClassName"/>
+  <property name="main.class" value="proj1/Proj1"/>
   
   <!-- set up some directories used by this project -->
   <target name="init" description="setup project directories">
@@ -111,7 +111,7 @@
   
   <!-- Compile the java code in ${src.dir} into ${build.dir} -->
   <target name="compile" depends="init" description="compile java sources">
-    <javac srcdir="${source.dir}" destdir="${build.dir}" debug="true" debuglevel="lines,vars,source"/>
+    <javac srcdir="${source.dir}" destdir="${build.dir}" debug="true" debuglevel="lines,vars,source"  includeantruntime="false"/>
   </target>
 
   <!-- execute the program with the fully qualified name in ${build.dir} after compiling -->
