@@ -1,5 +1,7 @@
 package proj1;
 
+import proj1.*;
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -27,10 +29,6 @@ public class Proj1 {
 		String filepath = "command.dat";
 		*/
 		
-		System.out.println("Blocks: " + blocks);
-		System.out.println("BytesPerBlock: " + bytesPerBlock);
-		System.out.println("Filepath: " + filepath);
-		
 		getCommand(blocks, bytesPerBlock, filepath);		
 
 	}
@@ -39,8 +37,7 @@ public class Proj1 {
 		BufferedReader r = new BufferedReader(new FileReader(filename));
 		StringTokenizer stok = new StringTokenizer(r.readLine());
 		String Command = stok.nextToken();
-		
-		//MyLinkedList fileManager = new MyLinkedList<>();
+		FileManager file = new FileManager();
 		
 		String storageName;
 		int bytes;
@@ -50,22 +47,22 @@ public class Proj1 {
 			storageName = stok.nextToken();
 			bytes = Integer.parseInt(stok.nextToken());
 			
-			System.out.println(storageName);
-			System.out.println(bytes);
+			file.addFile(storageName, bytesPerBlock, bytes);
 			
 		}
 		else if (Command.equals(delete))
 		{
 			storageName = stok.nextToken();
-			System.out.println(storageName);
+			
+			file.deleteFile(storageName);
 			
 		}
 		else if (Command.equals(extend))
 		{
 			storageName = stok.nextToken();
 			bytes = Integer.parseInt(stok.nextToken());
-			System.out.println(storageName);
-			System.out.println(bytes);
+			
+			file.extendFile(storageName, bytes);
 			
 		}
 		else if (Command.equals(truncate))
@@ -73,11 +70,12 @@ public class Proj1 {
 			storageName = stok.nextToken();
 			bytes = Integer.parseInt(stok.nextToken());
 			
+			file.truncateFile(storageName, bytes);
+			
 		}
 		else if (Command.equals(printState))
 		{
-			
-			
+			file.print();
 		}
 		
 		r.close();	
