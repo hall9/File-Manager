@@ -1,3 +1,4 @@
-CREATE alex.dat 350
-EXTEND alex.dat 100
-DELETE this.dat
+CREATE alex.dat 150
+PRINT
+CREATE jim.dat 1025
+PRINT
