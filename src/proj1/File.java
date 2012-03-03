@@ -17,8 +17,7 @@ public class File {
 		
 		public MyLinkedList<Block> FileBlocks = new MyLinkedList<Block>();
 
-		public void createBlockFileList(Block freeBlock) {
-			FileBlocks.add(freeBlock);
-		}
-			
+		public void createBlockFileList(Block newBlock) {
+			FileBlocks.add(newBlock);
+		}	
 }

@@ -1,4 +1,12 @@
 CREATE alex.dat 150
 PRINT
-CREATE jim.dat 1025
+CREATE jim.dat 4196
+PRINT
+DELETE alex.dat
+PRINT
+CREATE hello.dat 2800
+PRINT
+EXTEND hello.dat 10
+PRINT
+TRUNCATE hello.dat 10
 PRINT

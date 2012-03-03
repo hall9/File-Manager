@@ -25,7 +25,7 @@ public class Proj1 {
 */
 		int blocks = 100;
 		int bytesPerBlock = 1024;
-		String filepath = "command.dat";
+		String filepath = "command1.dat";
 
 		
 		getCommand(blocks, bytesPerBlock, filepath);
