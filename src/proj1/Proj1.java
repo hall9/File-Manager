@@ -15,18 +15,16 @@ public class Proj1 {
 	static String truncate = "TRUNCATE";
 	static String printState = "PRINT";
 	
-	public static void main(String[] args)  throws IOException
-	{	
-/*
+	public static void main(String[] args)  throws IOException {	
 		int blocks = Integer.parseInt(args[0]);
 		int bytesPerBlock = Integer.parseInt(args[1]);
 		String filepath = args[2];
 		
-*/
+/*
 		int blocks = 100;
 		int bytesPerBlock = 1024;
 		String filepath = "command1.dat";
-
+*/
 		
 		getCommand(blocks, bytesPerBlock, filepath);
 
