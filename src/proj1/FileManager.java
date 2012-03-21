@@ -71,18 +71,24 @@ public class FileManager implements Comparator<File> {
 	
 	public void deleteFile(String name) {
 		int fileIndex = findFileByName(name);
-		File file = listOfFiles.get(fileIndex);
-		int fileBlockListSize = file.FileBlocks.size();
+        
+        if (fileIndex != -1 ) {
+            File file = listOfFiles.get(fileIndex);
+            int fileBlockListSize = file.FileBlocks.size();
 		
-		int i;
-		for(i = 0; i < fileBlockListSize; i++) {
-			Block block = file.FileBlocks.get(i);
-			block.bytes = 0;
-			block.bytesFree = bytesPerBlock;
-			freeBlocks.add(i, block);
-		}
+            int i;
+            for(i = 0; i < fileBlockListSize; i++) {
+                Block block = file.FileBlocks.get(i);
+                block.bytes = 0;
+                block.bytesFree = bytesPerBlock;
+                freeBlocks.add(i, block);
+            }
 		
-		 listOfFiles.remove(fileIndex);
+            listOfFiles.remove(fileIndex);
+        }
+        else {
+            System.out.println(name + " file can not be found.."); 
+        }
 	}
 	
 	public void extendFile(String name, int bytes) {
@@ -140,46 +146,6 @@ public class FileManager implements Comparator<File> {
 
 			}
 		}
-		
-		
-		/*
-		
-		if (file.FileBlocks.get(fileBlockListSize - 1).bytes > bytes) {
-			file.FileBlocks.get(fileBlockListSize - 1).bytes -= bytes;
-			file.FileBlocks.get(fileBlockListSize - 1).bytesFree += bytes;
-			file.bytes -= bytes;
-		}
-		else{
-			if (bytesPerBlock >= bytes) {
-				bytes -= file.FileBlocks.get(fileBlockListSize - 1).bytesFree;
-				fileBlockListSize -= 1;
-				file.FileBlocks.get(fileBlockListSize).bytes = 0;
-				file.FileBlocks.get(fileBlockListSize).bytesFree = bytesPerBlock;
-				freeBlocks.add(file.FileBlocks.get(fileBlockListSize).Id, file.FileBlocks.get(fileBlockListSize));
-				file.FileBlocks.remove(file.FileBlocks.get(fileBlockListSize).Id);
-				file.FileBlocks.get(fileBlockListSize -1).bytes -= bytes;
-				file.FileBlocks.get(fileBlockListSize -1).bytesFree += bytes;
-				file.bytes -= bytes;
-			}
-			else if (bytesPerBlock < bytes){
-				while(bytesPerBlock < bytes) {
-					fileBlockListSize -= 1;
-					file.FileBlocks.get(fileBlockListSize).bytes = 0;
-					file.FileBlocks.get(fileBlockListSize).bytesFree = bytesPerBlock;
-					freeBlocks.add(file.FileBlocks.get(fileBlockListSize).Id, file.FileBlocks.get(fileBlockListSize));
-					file.FileBlocks.remove(file.FileBlocks.get(fileBlockListSize).Id);
-					bytes -= bytesPerBlock;
-				}
-				
-				if (bytesPerBlock >= bytes) {
-					file.FileBlocks.get(fileBlockListSize - 1).bytes -= bytes;
-					file.FileBlocks.get(fileBlockListSize - 1).bytesFree += bytes;
-					file.bytes -= bytes;
-				}
-			}	
-		}
-		
-		*/
 	}
 	
 	public void print() {
