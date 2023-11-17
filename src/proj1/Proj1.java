@@ -54,7 +54,7 @@ public class Proj1 {
 				Command = "#";
 			}
             
-			if ( Command.equals("#")) {
+			if ( "#".equals(Command)) {
 				// Do nothing skip line
 			}
 			else if (Command.equals(create))
